@@ -53,6 +53,24 @@ async function main() {
             },
         },
     });
+    await prisma.user.create({
+        data: {
+            name: "Mitchell",
+            messages: {
+                create: [
+                    {
+                        body: "Wow, GraphQL is very cool",
+                    },
+                    {
+                        body: "I finally understand what prisma does haha"
+                    },
+                    {
+                        body: "And the difference between schema-first and code-first in graphQL"
+                    }
+                ]
+            }
+        }
+    })
 }
 
 main().then(() => {
